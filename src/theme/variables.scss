@@ -36,10 +36,49 @@ $app-direction: ltr;
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
-  danger:     #f53d3d,
+  danger:     #c4213e,
   light:      #f4f4f4,
   dark:       #222
 );
+body {
+  background-image: url("https://t4.ftcdn.net/jpg/01/08/46/01/240_F_108460118_emMd3H7X43iw9gBuCuo6WsvFiVPqmTeH.jpg");
+
+}
+#accountId{
+  text-align: center;
+}
+#logout{
+  position: relative;
+  top: 350px;
+}
+#login{
+  position: relative;
+  top: 200px;
+}
+#options{
+  position: relative;
+  bottom: 400px;
+}
+
+/* #cardLabel{
+  position: relative;
+  bottom:100px;
+}
+#cardInput{
+  position: relative;
+  bottom:100px;
+}
+#pinLabel{
+  position: relative;
+  bottom:100px;
+}
+#pinInput{
+  position: relative;
+  bottom:100px;
+} */
+.no-scroll .scroll-content{
+  overflow: hidden;
+}
 
 
 // App iOS Variables

@@ -1,11 +1,27 @@
 <ion-header>
-  <ion-navbar>
+  
     <ion-title>
-      About
+      Balance Summary
     </ion-title>
-  </ion-navbar>
+  
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="no-scroll">
+        <ion-item id='invalidacc' #balance *ngIf ="account != 952286474268787" floating>Account does not exist</ion-item>
+        <ion-item id='accountId'*ngIf ="account == 952286474268787" floating><b>Account:</b> {{account}}</ion-item>
 
+        <button ion-button block id="errorbutton" *ngIf="account != 952286474268787" color='danger' (click)="logout()">Back to Login</button>
+      
+    <!-- <h1>Account: <br/> {{account}}</h1> -->
+    <!-- <label>Pin: {{pin}}</label> -->
+   
+    <p id='balance'*ngIf ="account == 952286474268787">{{myBalance}}</p>
+    
+
+    <button ion-button block id="options" style='position:relative;bottom:5px;' *ngIf="account == 952286474268787" color='danger' (click)="paypage()">Pay Now</button>
+    <button ion-button block id="options" style='position:relative;bottom:5px;' *ngIf="account == 952286474268787" color='danger' (click)="addvalue()">Add Value</button>
+    <button ion-button block id="options" style='position:relative;bottom:5px;' *ngIf="account == 952286474268787" color='danger' (click)="transactionspage()">Transaction History</button>
+    <button ion-button block id="options" style='position:relative;bottom:5px;' *ngIf="account == 952286474268787" color='danger' (click)="logout()">Logout</button>
+   
+    
 </ion-content>

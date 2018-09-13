@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  
+
+</ion-header>
+
+
+<ion-content padding class="no-scroll">
+    <img id="logo" src='http://ww1.prweb.com/prfiles/2015/05/18/12729948/factor41_copy2%20copy.png' />
+    
+    <p id="scan">Check your gift card balance by scanning your card or logging in below</p>
+  <ion-list>
+   
+    <ion-item>
+      <ion-label id="cardLabel" floating>Card Number</ion-label>
+      <ion-input id='cardInput' type="text" [(ngModel)]="accountNumber" #account></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label id='pinLabel' floating>Pin Number</ion-label>
+      <ion-input id='pinInput' type="password"  [(ngModel)]="accountPin" #pin></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  <button ion-button block class='margintop' color='danger' (click)="balance(account.value, pin.value)">Login</button>
+  
+  
+  
+</ion-content>
