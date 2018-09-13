@@ -11,6 +11,7 @@ declare var require: any
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+//export const API_ENDPOINT= '/api';
 @Injectable()
 export class Provider {
   
@@ -60,7 +61,7 @@ export class Provider {
     parseString = require('xml2js').parseString;
     wsdlUrl = 'https://trans.api.sparkbase.com/v4/transaction?wsdl';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor() {
    
   }
   getAccountNumber(accountNumber){
@@ -71,26 +72,7 @@ export class Provider {
   }
   loadbalance() {
     return fetch(this.wsdlUrl, {
-    body: "<?xml version='1.0'?>"+
-    "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
-      "<soap:Header/>"+
-        "<soap:Body>"+
-          "<urn:Inquiry>"+
-            "<standardHeader>"+
-              "<requestId>0</requestId>"+
-              "<localeId/>"+
-              "<systemId>SB</systemId>"+
-              "<clientId>999</clientId>"+
-              "<locationId>958741</locationId>"+
-              "<terminalId>1</terminalId>"+
-            "</standardHeader>"+
-            "<account>"+
-              "<accountId>"+this.account+"</accountId>"+
-              "<pin>"+this.pin+"</pin>"+
-            "</account>"+
-        "</urn:Inquiry>"+
-      "</soap:Body>"+
-    "</soap:Envelope>",
+    body: this.inquiryRequest,
     method: 'POST',
     headers: new Headers({
       'Authorization': 'Basic '+btoa('loc958741:viv1234')

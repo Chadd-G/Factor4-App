@@ -21,6 +21,7 @@ export class AboutPage {
     
    this.account = navParams.get('account')
    this.pin = navParams.get('pin')
+ 
    this.provider.loadbalance().then(response => {
     // data after proccessed.
     this.myBalance = response;
@@ -47,7 +48,7 @@ export class AboutPage {
   ionViewDidLoad(balance){
    
 
-    console.log(this.navParams.get('pin'));
+    
    
   }
 

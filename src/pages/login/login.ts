@@ -12,10 +12,11 @@ import { Provider } from '../../providers/data/provider';
 })
 
 export class LoginPage {
+ 
   accountNumber: any;
   accountPin: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public provider: Provider) {
-
+  
   }
 
   ionViewDidLoad() {
@@ -26,7 +27,6 @@ export class LoginPage {
     account = account || '0'
     pin = pin
     this.navCtrl.push(AboutPage, {account, pin});
-    this.navCtrl.push(Provider, {account, pin});
   }
 
 }

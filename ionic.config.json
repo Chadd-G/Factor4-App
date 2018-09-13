@@ -7,7 +7,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "https://trans.api.sparkbase.com/v4/transaction"
+      "proxyUrl": "https://trans.api.sparkbase.com/v4/transaction?wsdl"
     }
   ]
 }
