@@ -13,19 +13,18 @@ import { Provider } from '../../providers/data/provider';
 })
   
 export class AboutPage {
-  valueCode: any;
+ 
   myBalance: any
   account: string;
   pin: string;
-  accountNumber: any;
-  accountPin: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public provider: Provider) {
     this.account = navParams.get('account');
     this.pin = navParams.get('pin')
     this.provider.loadbalance(this.account, this.pin).then(response => {
     // data after proccessed.
-    this.myBalance = response;
-    console.log("balance: ",this.myBalance);
+       this.myBalance = response;
+       console.log("balance: ",response);
      }, err => console.log(err))
   
   }

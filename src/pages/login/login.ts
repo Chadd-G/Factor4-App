@@ -22,6 +22,7 @@ export class LoginPage {
   sendLoginInput(account, pin){
     account = this.accountNumber;
     pin = this.accountPin;
+    console.log("pin: ", pin)
     this.navCtrl.push(AboutPage, {account, pin});
   }
 
