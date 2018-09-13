@@ -14,27 +14,9 @@ declare var require: any
 //export const API_ENDPOINT= '/api';
 @Injectable()
 export class Provider {
-  
-   inquiryRequest ="<?xml version='1.0'?>"+
-      "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
-        "<soap:Header/>"+
-          "<soap:Body>"+
-            "<urn:Inquiry>"+
-              "<standardHeader>"+
-                "<requestId>0</requestId>"+
-                "<localeId/>"+
-                "<systemId>SB</systemId>"+
-                "<clientId>999</clientId>"+
-                "<locationId>958741</locationId>"+
-                "<terminalId>1</terminalId>"+
-              "</standardHeader>"+
-              "<account>"+
-                "<accountId>952286474268787</accountId>"+
-                "<pin>617160</pin>"+
-              "</account>"+
-          "</urn:Inquiry>"+
-        "</soap:Body>"+
-      "</soap:Envelope>"
+    provAccount = '';
+    provPin = '';
+   
     accountHistory = "<?xml version='1.0'?>"+
     "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
       "<soap:Header/>"+
@@ -56,23 +38,36 @@ export class Provider {
       "</soap:Body>"+
     "</soap:Envelope>"
 
-    account = '';
-    pin = '';
+    
     parseString = require('xml2js').parseString;
     wsdlUrl = 'https://trans.api.sparkbase.com/v4/transaction?wsdl';
 
   constructor() {
    
   }
-  getAccountNumber(accountNumber){
-    accountNumber = this.account;
-  }
-  getAccountPin(accountPin){
-    accountPin = this.pin
-  }
-  loadbalance() {
+
+  loadbalance(account, pin) {
     return fetch(this.wsdlUrl, {
-    body: this.inquiryRequest,
+    body: "<?xml version='1.0'?>"+
+    "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
+      "<soap:Header/>"+
+        "<soap:Body>"+
+          "<urn:Inquiry>"+
+            "<standardHeader>"+
+              "<requestId>0</requestId>"+
+              "<localeId/>"+
+              "<systemId>SB</systemId>"+
+              "<clientId>999</clientId>"+
+              "<locationId>958741</locationId>"+
+              "<terminalId>1</terminalId>"+
+            "</standardHeader>"+
+            "<account>"+
+              "<accountId>"+account+"</accountId>"+
+              "<pin>"+pin+"</pin>"+
+            "</account>"+
+        "</urn:Inquiry>"+
+      "</soap:Body>"+
+    "</soap:Envelope>",
     method: 'POST',
     headers: new Headers({
       'Authorization': 'Basic '+btoa('loc958741:viv1234')
