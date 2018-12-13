@@ -4,92 +4,17 @@ page-home {
         left: 150px;
         bottom: 15px;
     }
-#logo{
-    position: relative;
-    bottom: 50px;
-}
-
- #vmessage{
-     text-align: center;
-     font-size: 17px;
-     position: relative;
-     bottom: 50px;
-     color:	#404040;
- }
- #paymethod{
-     position: relative;
-     top: 55px;
-     text-align: center;
-     font-size: 17px;
-     color:	#404040;
- }
- #seperator{
-     position: relative;
-     top: 15px;
-    border: 1;
-    border-top: 1px dotted #8c8b8b;
-    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
- }
- #five{
-     position: relative;
-     left: 50px;
-     padding: 20px;
-     font-size: 25px;
-     bottom:40px;
- }
- #ten{
-     position: relative;
-     bottom:40px;
-     left: 65px;
-     padding-left: 12px;
-     padding-right: 12px;
-     padding-top: 20px;
-     padding-bottom: 20px;
-     font-size: 25px;
- }
- #fifteen{
-    position: relative;
-    bottom:40px;
-     left: 80px;
-     padding-left: 12px;
-     padding-right: 12px;
-     padding-top: 20px;
-     padding-bottom: 20px;
-     font-size: 25px;
-    
- }
- #twenty{
-     position: relative;
+    #header{
+        Font-weight: bold;
+        color: #ABBBB9;
+    }
+  #addValueButton{
+      font-size: 16px;
+     outline-style: auto;
+     outline-color: #cbdbd9;
      
-    top: 20px;
-     right: 175px;
-     padding-left: 12px;
-     padding-right: 12px;
-     padding-top: 20px;
-     padding-bottom: 20px;
-     font-size: 25px;
- }
- #twentyfive{
-     position: relative;
-     
-     bottom:27px;
-     left: 140px;
-     padding-left: 12px;
-     padding-right: 12px;
-     padding-top: 20px;
-     padding-bottom: 20px;
-     font-size: 25px;
- }
- #fifty{
-     position: relative;
-     
-    bottom:27px;
-     left: 156px;
-     padding-left: 12px;
-     padding-right: 12px;
-     padding-top: 20px;
-     padding-bottom: 20px;
-     font-size: 25px;
- }
+      
+  
+  }
 
 }

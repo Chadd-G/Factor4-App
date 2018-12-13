@@ -10,7 +10,7 @@ var auth = "Basic " + new Buffer("loc958741" + ":" + "viv1234").toString("base64
     client.addHttpHeader('Authorization', auth);
     console.log("error: ", err )
 
-    client.SparkbaseTransactionWsdlImplService.SparkbaseTransactionWsdlPortPort.Inquiry(
+    client.SparkbaseTransactionWsdlImplService.SparkbaseTransactionWsdlPortPort.LoyaltyIssuance(
     {
       standardHeader: {
       requestId: "",
@@ -21,16 +21,26 @@ var auth = "Basic " + new Buffer("loc958741" + ":" + "viv1234").toString("base64
       },
     account: {
       accountId: "952286474268787",
-      pin: "617160"
+      pin: "617160",
+      entryType: "K"
      },
+     amount: {
+      // programId: "43682",
+       valueCode: "Points",
+       enteredAmount: "100"
+      
+     }
+    
+  
    }, 
     function (err, result, rawResponse, soapHeader, rawRequest) {
         //console.log("error: ", err )
-        //console.log("client: ", client.describe());
-         console.log("RESULT: ",result);
-         console.log("BALANCE: ",result.balances.balance[0].amount," ",result.balances.balance[0].valueCode);
-         console.log("XMLRESPONSE: ",rawResponse);
-         console.log("HEADERS: ",client.getHttpHeaders());
+        //console.log("accounthistory: ", client.describe().SparkbaseTransactionWsdlImplService.SparkbaseTransactionWsdlPortPort.AccountHistory)
+        console.log("RESULT: ",result);
+         console.log("BALANCE: ",result.balances);
+        
+        // console.log("last request: ",client.lastRequest);
+        // console.log("HEADERS: ",client.getHttpHeaders());
      
      }); 
 

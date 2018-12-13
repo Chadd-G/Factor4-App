@@ -2,8 +2,9 @@ page-welcome {
     .margintop{
         margin-top: 150px;
     }
-    #login{
+    #loginButton{
         position: relative;
-        bottom:50px;
+        top: 100px;
+       font-size: 16px;
     }
 }

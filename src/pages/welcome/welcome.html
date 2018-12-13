@@ -12,10 +12,17 @@
 
 
 <ion-content padding>
-<img src='http://ww1.prweb.com/prfiles/2015/05/18/12729948/factor41_copy2%20copy.png' />
-<h1 style="text-align:center;"> Factor4 mobile</h1>
+<img src='https://irp-cdn.multiscreensite.com/de923dbf/dms3rep/multi/desktop/56764850-3330-424b-acb7-b2aabc302719.png' />
+<h1 style="text-align:center;">GiftCard mobile</h1>
 
 <p style='text-align:center;'>Please log in to check your card balances</p>
-<button ion-button block id="login" color='danger' (click)="login()">Login</button>
+<ion-item>
+  <ion-label>Select a Business</ion-label>
+  <ion-select [(ngModel)]="gender">
+    <ion-option value="f">VIV Test Company</ion-option>
+  <ion-option> Business Option 1</ion-option>
+  </ion-select>
+</ion-item>
+<button id="loginButton" ion-button full (click)="login()">Login</button>
 
 </ion-content>

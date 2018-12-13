@@ -1,13 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Pay Now 
+    
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Barcode</ion-list-header>
-    </ion-list>
+    <ion-card id="barcodeCard">
+        <ion-card-header id="header">
+            Pay Now
+          </ion-card-header>
+          <button ion-item (click)="paypage(account, pin)" >
+              <svg #barcode id='barcode'></svg>
+          </button>
+    </ion-card>
+ <!--  <ion-list>
+   
+  
+    <ion-list-header>Pay Now</ion-list-header>
+    <ion-item>
+        <svg #barcode id='barcode'[(ngModel)]="barcodeNumber" ngDefaultControl></svg>
+      </ion-item>
+    
+    </ion-list> -->
+    
 </ion-content>

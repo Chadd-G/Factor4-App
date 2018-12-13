@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-
-import { NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from '../../pages/login/login';
 import 'rxjs/add/operator/map';
 declare var require: any
 
@@ -54,12 +51,12 @@ export class Provider {
             var status = result['soap:Envelope']['soap:Body'][0]['ns2:InquiryResponse'][0]['standardHeader'][0].status.toString();
             
             if(status == 'A'){
-            balance = result['soap:Envelope']['soap:Body'][0]['ns2:InquiryResponse'][0]['balances'][0].balance[0].amount.toString();
+              balance = result['soap:Envelope']['soap:Body'][0]['ns2:InquiryResponse'][0]['balances'][0].balance[0].amount.toString();
            }
              else if (status == "E"){
               var briefMessage = result['soap:Envelope']['soap:Body'][0]['ns2:InquiryResponse'][0]['errorMessage'][0].briefMessage.toString();
-            var inDepthmessage = result['soap:Envelope']['soap:Body'][0]['ns2:InquiryResponse'][0]['errorMessage'][0].inDepthMessage.toString();
-            balance = briefMessage+ " - "+inDepthmessage;
+              var inDepthmessage = result['soap:Envelope']['soap:Body'][0]['ns2:InquiryResponse'][0]['errorMessage'][0].inDepthMessage.toString();
+              balance = briefMessage+ " - "+inDepthmessage;
             } 
            
           })
@@ -87,7 +84,14 @@ export class Provider {
               "<account>"+
                 "<accountId>"+account+"</accountId>"+
                 "<pin>"+pin+"</pin>"+
+                "<entryType>K</entryType>"+
               "</account>"+
+             "<report>"+
+                "<type>D</type>"+
+                "<minimumDate>20180901</minimumDate>"+
+                "<maximumDate>20180930</maximumDate>"+
+                "<maxRecords>15</maxRecords>"+
+              "</report>"+ 
           "</urn:AccountHistory>"+
         "</soap:Body>"+
       "</soap:Envelope>",
@@ -102,12 +106,48 @@ export class Provider {
               this.parseString(transactions, function (error, result){
           //console.log("error: ",error)
               transactions = result['soap:Envelope']['soap:Body'][0]['ns2:AccountHistoryResponse'][0].printableData.toString();
-       
+               console.log("result: ", result);
             })
        
          return transactions;
        
         })
     }
- 
+    loadBarcode(account, pin){
+      return fetch(this.wsdlUrl, {
+              body: "<?xml version='1.0'?>"+
+                "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
+                  "<soap:Header/>"+
+                    "<soap:Body>"+
+                      "<urn:Inquiry>"+
+                        "<standardHeader>"+
+                          "<requestId>0</requestId>"+
+                          "<localeId/>"+
+                          "<systemId>SB</systemId>"+
+                          "<clientId>999</clientId>"+
+                          "<locationId>958741</locationId>"+
+                          "<terminalId>1</terminalId>"+
+                        "</standardHeader>"+
+                        "<account>"+
+                          "<accountId>"+account+"</accountId>"+
+                          "<pin>"+pin+"</pin>"+
+                        "</account>"+
+                      "</urn:Inquiry>"+
+                    "</soap:Body>"+
+                "</soap:Envelope>",
+              method: 'POST',
+              headers: new Headers({
+                  'Authorization': 'Basic '+ btoa('loc958741:viv1234')
+                }), 
+              credentials: 'include'
+          }).then((response) => response.text())
+              .then((barcode) => { 
+                this.parseString(barcode, function (error, result){
+                  barcode = result//['soap:Envelope']['soap:Body'][0] <--- (account component => accountID)
+                  console.log("result: ", result);
+                })
+               return barcode;
+            })
+      }
+  
 }
