@@ -1,15 +1,15 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AboutPage } from '../about/about';
+import { HomePage } from '../home/home';
 import { Provider } from '../../providers/data/provider';
 import JsBarcode from 'jsbarcode';
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html',
+  selector: 'page-barcode',
+  templateUrl: 'barcode.html',
   providers: [Provider]
 })
 
-export class ContactPage {
+export class BarcodePage {
   @ViewChild('barcode') barcode: ElementRef;
   
   account: string;
@@ -25,11 +25,11 @@ export class ContactPage {
   }
   ionViewDidLoad() {
     JsBarcode(this.barcode.nativeElement, this.account, {
-      marginLeft: 28
+      marginLeft: 40
     });
   }
   balancepage(){
-    this.navCtrl.push(AboutPage);
+    this.navCtrl.push(HomePage);
     }
     
 }

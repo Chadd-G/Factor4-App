@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AboutPage } from '../about/about';
+import { HomePage } from '../home/home';
 import { Provider } from '../../providers/data/provider';
 
 
@@ -23,7 +23,7 @@ export class LoginPage {
     account = this.accountNumber;
     pin = this.accountPin;
     console.log("pin: ", pin)
-    this.navCtrl.push(AboutPage, {account, pin});
+    this.navCtrl.push(HomePage, {account, pin});
   }
 
   ionViewDidLoad() {

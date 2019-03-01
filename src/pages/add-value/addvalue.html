@@ -1,0 +1,67 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  
+  
+  <img #balance style='position:relative; bottom:10px;' src='https://cdn.shopify.com/s/files/1/0250/1519/products/giftcard-product-black_large.png?v=1436997716' />
+ 
+  <!-- <p id="vmessage">Select an amount to be added to your card.</p> -->
+
+ 
+ <ion-card>
+   <ion-card-header id="header">
+     Add Value 
+   </ion-card-header>
+       <ion-grid>
+      <ion-row>
+          <ion-col>
+              <button (click)="promptPaymentWindow()" id="addValueButton" ion-item>
+                  <ion-icon name="md-add-circle" item-start></ion-icon>
+                   $5
+                </button>
+          </ion-col>
+          <ion-col>
+              <button id="addValueButton"  ion-item>
+                  <ion-icon name="md-add-circle" item-start></ion-icon>
+                   $10 
+                  </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <button id="addValueButton"  ion-item>
+                  <ion-icon name="md-add-circle" item-start></ion-icon>
+                   $20
+                  </button>
+          </ion-col>
+          <ion-col>
+              <button id="addValueButton"  ion-item>
+                  <ion-icon name="md-add-circle" item-start></ion-icon>
+                   $30 
+                  </button>
+                  
+          </ion-col>
+          <ion-col>
+              <button id="addValueButton"  ion-item>
+                 <ion-icon name="md-add-circle" item-start></ion-icon>
+                   $50 
+                </button>
+          </ion-col>
+          <ion-col>
+              <button id="addValueButton"  ion-item>
+                 <ion-icon name="md-add-circle" item-start></ion-icon>
+                   $100
+                </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+     
+  </ion-card>
+
+</ion-content>
