@@ -3,27 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { Provider } from '../providers/data/provider';
 import { LoginPage } from '../pages/login/login';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { BarcodePage } from '../pages/barcode/barcode';
+import { AddValuePage } from '../pages/add-value/addvalue';
 import { TransactionsPage } from '../pages/transactions/transactions';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Provider } from '../providers/data/provider';
+import { PaymentWindowPage } from '../pages/payment-window/payment-window';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
     WelcomePage,
-    AboutPage,
-    TransactionsPage,
-    ContactPage,
     HomePage,
-    TabsPage
+    TransactionsPage,
+    BarcodePage,
+    AddValuePage,
+    PaymentWindowPage
   ],
   imports: [
     BrowserModule,
@@ -35,11 +35,11 @@ import { Provider } from '../providers/data/provider';
     MyApp,
     WelcomePage,
     LoginPage,
-    AboutPage,
-    TransactionsPage,
-    ContactPage,
     HomePage,
-    TabsPage
+    TransactionsPage,
+    BarcodePage,
+    AddValuePage,
+    PaymentWindowPage
   ],
   providers: [
     StatusBar,
