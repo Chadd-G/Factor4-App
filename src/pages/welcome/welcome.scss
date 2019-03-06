@@ -1,4 +1,7 @@
 page-welcome {
+    .no-scroll{
+        background-color:#D9FAFA ;
+    }
     .margintop{
         margin-top: 150px;
     }
@@ -6,5 +9,6 @@ page-welcome {
         position: relative;
         top: 220px;
        font-size: 16px;
+       background-color:#90EE90;
     }
 }

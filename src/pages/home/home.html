@@ -21,10 +21,10 @@
           Balance
         </ion-card-header>
        
-        <button ion-item>
+        <label ion-item>
             <ion-icon name="card" item-start></ion-icon>
             {{account}}
-          </button>
+        </label>
           <label  ion-item>
             <ion-icon name="cash" item-start></ion-icon>
             {{myBalance}} 
@@ -46,7 +46,7 @@
         Manage Your Card
       </ion-card-header>
     
-      <ion-list>
+ 
         <button (click)="addvalue()" ion-item>
           <ion-icon name="md-add-circle" item-start></ion-icon>
           Add Value
@@ -56,13 +56,13 @@
           <ion-icon name="cart" item-start></ion-icon>
           Transaction History
         </button>
-      </ion-list>
+
     </ion-card>
-    <button (click)='logout()' ion-button full >Logout</button>
+    <button (click)='logout()' ion-button full id="logoutButton" >Logout</button>
     <!-- <button ion-button block id="options" style='position:relative;bottom:5px;'  *ngIf="myBalance !== 'error'"   color='danger' (click)="paypage(account, pin)">Pay Now</button> -->
    <!--  <button ion-button block id="options" style='position:relative;bottom:5px;'  *ngIf="myBalance !== 'error'"  color='danger' (click)="addvalue()">Add Value</button>
     <button ion-button block id="options" style='position:relative;bottom:5px;'  *ngIf="myBalance !== 'error'" color='danger' (click)="transactionspage(account, pin)">Transaction History</button>
     <button ion-button block id="options" style='position:relative;bottom:5px;'  *ngIf="myBalance !== 'error'" color='danger' (click)="logout()">Logout</button> -->
-   
+    <img id="logo" src='https://irp-cdn.multiscreensite.com/de923dbf/dms3rep/multi/desktop/56764850-3330-424b-acb7-b2aabc302719.png' />
     
 </ion-content>
