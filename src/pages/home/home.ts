@@ -46,7 +46,7 @@ export class HomePage {
    paypage(account, pin){
      account = this.account
      pin = this.pin
-    this.navCtrl.push(BarcodePage, {account,pin});
+     this.navCtrl.push(BarcodePage, {account,pin});
     }
    addvalue(){
     this.navCtrl.push(PaymentWindowPage);

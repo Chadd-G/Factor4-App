@@ -16,7 +16,45 @@ export class Provider {
     wsdlUrl = 'https://trans.api.sparkbase.com/v4/transaction?wsdl';
 
   constructor() {}
+  login(account, pin){
+    return fetch(this.wsdlUrl, {
+      body: "<?xml version='1.0'?>"+
+      "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
+        "<soap:Header/>"+
+          "<soap:Body>"+
+            "<urn:AccountHistory>"+
+              "<standardHeader>"+
+                "<requestId>0</requestId>"+
+                "<localeId/>"+
+                "<systemId>SB</systemId>"+
+                "<clientId>999</clientId>"+
+                "<locationId>958741</locationId>"+
+                "<terminalId>1</terminalId>"+
+              "</standardHeader>"+
+              "<account>"+
+                "<accountId>"+account+"</accountId>"+
+                "<pin>"+pin+"</pin>"+
+              "</account>"+
+          "</urn:AccountHistory>"+
+        "</soap:Body>"+
+      "</soap:Envelope>",
+      method: 'POST',
+      headers: new Headers({
+        'Authorization': 'Basic '+btoa('loc958741:viv1234')
+          }), 
+      credentials: 'include'
+        })
+        .then((response) => response.text())
+        .then((loginStatus) => {
+          this.parseString(loginStatus, 
+            function (error, result){
+                  loginStatus = result['soap:Envelope']['soap:Body'][0]['ns2:AccountHistoryResponse'][0]['standardHeader'][0].status.toString();
+                  
+                });
 
+          return loginStatus;
+         });
+  };
   loadbalance(account, pin) {
     return fetch(this.wsdlUrl, {
     body: "<?xml version='1.0'?>"+
@@ -88,8 +126,8 @@ export class Provider {
               "</account>"+
              "<report>"+
                 "<type>D</type>"+
-                "<minimumDate>20180901</minimumDate>"+
-                "<maximumDate>20180930</maximumDate>"+
+                "<minimumDate>20180901</minimumDate>"+ //Beginning of Month
+                "<maximumDate>20180930</maximumDate>"+ //DateTime Now
                 "<maxRecords>15</maxRecords>"+
               "</report>"+ 
           "</urn:AccountHistory>"+
@@ -113,7 +151,8 @@ export class Provider {
        
         })
     }
-    loadBarcode(account, pin){
+
+  loadBarcode(account, pin){
       return fetch(this.wsdlUrl, {
               body: "<?xml version='1.0'?>"+
                 "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
@@ -148,6 +187,6 @@ export class Provider {
                 })
                return barcode;
             })
-      }
+    }
   
 }

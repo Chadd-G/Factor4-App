@@ -16,6 +16,26 @@
 <ion-content padding>
     <p id="history">Transactions: </p>
     <hr id="seperator">
-
-    <pre>{{myTransactions}}</pre>
+  
+    <div class="row header">
+      <div class="col">ID#</div>
+      <div class="col">Date</div>
+      <div class="col">Time</div>
+      <div class="col">Type</div>
+      <div class="col">Amount</div>
+    </div>
+  <div *ngFor='let transaction of transactions; let i = index'>
+    <div class="row">
+      <div class="col" >{{transactions[i].split(" ", 1)}}</div>
+      <div class="col" >{{transactions[i].slice(5,9)}}</div>
+      <div class="col" ></div>
+      <div class="col" ></div>
+      <div class="col" ></div>
+     <!--  <div class="col"></div>
+      <div class="col">3</div>
+      <div class="col">4</div>
+      <div class="col">5</div> -->
+    </div>
+  </div>
+    <!-- <pre>{{myTransactions}}</pre> -->
 </ion-content>
