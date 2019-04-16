@@ -14,8 +14,10 @@ export class Provider {
   
     parseString = require('xml2js').parseString;
     wsdlUrl = 'https://trans.api.sparkbase.com/v4/transaction?wsdl';
-
+   
   constructor() {}
+ 
+
   login(account, pin){
     return fetch(this.wsdlUrl, {
       body: "<?xml version='1.0'?>"+
@@ -55,6 +57,7 @@ export class Provider {
           return loginStatus;
          });
   };
+
   loadbalance(account, pin) {
     return fetch(this.wsdlUrl, {
     body: "<?xml version='1.0'?>"+
@@ -105,6 +108,14 @@ export class Provider {
     };
 
   transactions(account, pin){
+    var d = new Date();
+    var currentDate = d.getDate();
+    var currentDatePadded = "".concat(currentDate < 10 ? '0' + ""+currentDate : ""+currentDate);
+    var currentMonth = d.getMonth() + 1;
+    var currentMonthPadded = "".concat(currentMonth < 10 ? '0' + ""+currentMonth : ""+currentMonth);
+    var currentYear = d.getFullYear();
+    var dateFormat = "".concat(currentYear+""+currentMonthPadded+""+currentDatePadded);
+    //var currentDate = "".concat(d.getFullYear()+""+d.getMonth()+1+""+d.getDate());
     return fetch(this.wsdlUrl, {
       body: "<?xml version='1.0'?>"+
       "<soap:Envelope xmlns:soap='http://www.w3.org/2003/05/soap-envelope' xmlns:urn='urn:SparkbaseTransactionWsdl'>"+
@@ -126,9 +137,9 @@ export class Provider {
               "</account>"+
              "<report>"+
                 "<type>D</type>"+
-                "<minimumDate>20180901</minimumDate>"+ //Beginning of Month
-                "<maximumDate>20180930</maximumDate>"+ //DateTime Now
-                "<maxRecords>15</maxRecords>"+
+                "<minimumDate>20190416</minimumDate>"+ //Beginning of Month
+                "<maximumDate>"+dateFormat+"</maximumDate>"+ //DateTime Now
+                "<maxRecords>400</maxRecords>"+
               "</report>"+ 
           "</urn:AccountHistory>"+
         "</soap:Body>"+
@@ -145,6 +156,7 @@ export class Provider {
           //console.log("error: ",error)
               transactions = result['soap:Envelope']['soap:Body'][0]['ns2:AccountHistoryResponse'][0].printableData.toString();
                console.log("result: ", result);
+               console.log("current date: ",dateFormat)
             })
        
          return transactions;

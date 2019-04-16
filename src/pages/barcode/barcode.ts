@@ -25,7 +25,7 @@ export class BarcodePage {
   }
   ionViewDidLoad() {
     JsBarcode(this.barcode.nativeElement, this.account, {
-      marginLeft: 40
+      marginLeft: 19
     });
   }
   balancepage(){

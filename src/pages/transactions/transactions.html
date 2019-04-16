@@ -9,33 +9,69 @@
   <ion-navbar>
     <ion-title></ion-title>
   </ion-navbar>
-
+  <ion-item id="tableHeaders" auto>
+      <ion-grid style="position:sticky; top: 0; left: 0; right: 0; z-index: 9999; text-align: center;">
+       <ion-row>
+          <ion-col class="header_col" auto>ID</ion-col>
+          <ion-col class="header_col" auto>Date</ion-col>
+          <ion-col class="header_col" auto>Type</ion-col>
+          <ion-col class="header_col" auto>Amount</ion-col>
+        </ion-row>
+      </ion-grid>
+      </ion-item>
 </ion-header>
 
 
 <ion-content padding>
-    <p id="history">Transactions: </p>
-    <hr id="seperator">
   
-    <div class="row header">
+    <ion-item id="tableData" auto>
+    <ion-grid  class="grid" *ngFor='let transaction of transactions; let i = index'>
+
+
+      <ion-row >
+          <ion-col class="data_col" auto>  
+              {{transactions[i].split(" ", 1)}}
+            </ion-col>
+
+          <ion-col class="data_col" auto>  
+              {{transactions[i].slice(5,7)}}/{{transactions[i].slice(7,9)}}
+            </ion-col>
+
+          <ion-col class="data_col" auto>  
+              {{transactions[i].slice(16,18)}}
+            </ion-col>
+
+          <ion-col class="data_col" auto>  
+              {{transactions[i].slice(19,26)}}
+            </ion-col>
+      </ion-row>
+
+
+    </ion-grid>
+  </ion-item>
+
+
+
+
+
+
+
+
+  <!--   <div class="row header">
       <div class="col">ID#</div>
       <div class="col">Date</div>
-      <div class="col">Time</div>
       <div class="col">Type</div>
       <div class="col">Amount</div>
     </div>
-  <div *ngFor='let transaction of transactions; let i = index'>
-    <div class="row">
+
+   <div *ngFor='let transaction of transactions; let i = index'>
+    <div class="row" *ngIf='transactions[i].slice(16,18) !== "I" && transactions[i].slice(16,18) !=="AH"'>
       <div class="col" >{{transactions[i].split(" ", 1)}}</div>
-      <div class="col" >{{transactions[i].slice(5,9)}}</div>
-      <div class="col" ></div>
-      <div class="col" ></div>
-      <div class="col" ></div>
-     <!--  <div class="col"></div>
-      <div class="col">3</div>
-      <div class="col">4</div>
-      <div class="col">5</div> -->
+      <div class="col" >{{transactions[i].slice(5,7)}}/{{transactions[i].slice(7,9)}}</div>
+      <div class="col" >{{transactions[i].slice(16,18)}}</div>
+      <div class="col" *ngIf='transactions[i].slice(19,23).length != 0' >{{transactions[i].slice(19,23)}}.00</div>
     </div>
-  </div>
-    <!-- <pre>{{myTransactions}}</pre> -->
+  </div>  -->
+
+   
 </ion-content>

@@ -23,17 +23,17 @@ export class HomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public provider: Provider) {
     this.account = navParams.get('account');
     this.pin = navParams.get('pin')
-    this.provider.loadbalance(this.account, this.pin).then(response => {
+     this.provider.loadbalance(this.account, this.pin).then(response => {
       
        this.myBalance = "$ "+ response;
        console.log("balance: ",response);
-     }, err => console.log(err)/*{this.myBalance = "error"}*/)
+     }, err => console.log(err)) 
      
   
   }
   ionViewDidLoad(){
     JsBarcode(this.barcode.nativeElement, this.account, {
-      marginLeft: 40
+      marginLeft: 16
     });
    }
    ionViewWillEnter() {
