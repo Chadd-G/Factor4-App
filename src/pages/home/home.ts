@@ -61,7 +61,8 @@ export class HomePage {
    }
 
    logout(){
-    this.navCtrl.push(WelcomePage);
+     this.navCtrl.pop()
+    //this.navCtrl.push(WelcomePage);
    }
 
  
