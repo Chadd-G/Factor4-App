@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-declare var require: any
+declare var require: any;
 
 /*
   Generated class for the DataProvider provider.
@@ -115,6 +115,7 @@ export class Provider {
     var currentMonthPadded = "".concat(currentMonth < 10 ? '0' + ""+currentMonth : ""+currentMonth);
     var currentYear = d.getFullYear();
     var dateFormat = "".concat(currentYear+""+currentMonthPadded+""+currentDatePadded);
+    var firstOfMonth = "".concat(currentYear+""+currentMonthPadded+""+"01");
     //var currentDate = "".concat(d.getFullYear()+""+d.getMonth()+1+""+d.getDate());
     return fetch(this.wsdlUrl, {
       body: "<?xml version='1.0'?>"+
@@ -137,7 +138,7 @@ export class Provider {
               "</account>"+
              "<report>"+
                 "<type>D</type>"+
-                "<minimumDate>20190416</minimumDate>"+ //Beginning of Month
+                "<minimumDate>"+firstOfMonth+"</minimumDate>"+ //Beginning of Month
                 "<maximumDate>"+dateFormat+"</maximumDate>"+ //DateTime Now
                 "<maxRecords>400</maxRecords>"+
               "</report>"+ 
@@ -156,7 +157,8 @@ export class Provider {
           //console.log("error: ",error)
               transactions = result['soap:Envelope']['soap:Body'][0]['ns2:AccountHistoryResponse'][0].printableData.toString();
                console.log("result: ", result);
-               console.log("current date: ",dateFormat)
+               console.log("current date: ",dateFormat);
+               console.log("starting date: ",firstOfMonth);
             })
        
          return transactions;

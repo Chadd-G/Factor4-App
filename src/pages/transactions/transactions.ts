@@ -36,7 +36,7 @@ export class TransactionsPage {
         
         for (var i = 0; i < transactionsLength; i++){
           
-          if (this.transactionReport[i].slice(16,18) == "GR"){
+          if (this.transactionReport[i].slice(16,18) == "GR" || this.transactionReport[i].slice(16,18) == "GI"){
             this.transactions.push(this.transactionReport[i]);
           }
         } 
