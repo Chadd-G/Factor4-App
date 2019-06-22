@@ -202,5 +202,21 @@ export class Provider {
                return barcode;
             })
     }
-  
+
+  setGiftCredentials(account, pin){
+      var url ='http://192.168.1.212:80/setGiftCredentials.php';
+      var data = { 'accountId': account, 'pin': pin};
+        return fetch(url, {
+            method: 'POST',   
+            body: JSON.stringify(data),
+            credentials: 'include'
+
+          }).then((res) => res.json())
+            .then((response) => {
+                console.log('accountID JSON:', response.accountId);
+                console.log('pin JSON:', response.pin);
+              return response;
+        })
+        .catch(error => console.log('Error:', error.message));
+    }
 }

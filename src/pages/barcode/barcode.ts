@@ -12,9 +12,8 @@ import JsBarcode from 'jsbarcode';
 export class BarcodePage {
   @ViewChild('barcode') barcode: ElementRef;
   
-  account: string;
-  pin: string;
-  barcodeNumber: any;
+  account: any;
+  pin: number;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public provider: Provider) {
     this.account = navParams.get('account')

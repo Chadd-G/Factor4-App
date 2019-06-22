@@ -16,13 +16,14 @@ import JsBarcode from 'jsbarcode';
   
 export class HomePage {
   @ViewChild('barcode') barcode: ElementRef;
-  myBalance: any
+  myBalance: any;
   account: string;
   pin: string;
  
+ 
   constructor(public navCtrl: NavController, public navParams: NavParams, public provider: Provider) {
     this.account = navParams.get('account');
-    this.pin = navParams.get('pin')
+    this.pin = navParams.get('pin');
      this.provider.loadbalance(this.account, this.pin).then(response => {
       
        this.myBalance = "$ "+ response;
@@ -41,7 +42,7 @@ export class HomePage {
       
       this.myBalance = "$ "+ response;
       console.log("balance: ",response);
-    }, err => console.log(err)/*{this.myBalance = "error"}*/)
+    }, err => console.log(err))
   }
    paypage(account, pin){
      account = this.account
@@ -49,6 +50,10 @@ export class HomePage {
      this.navCtrl.push(BarcodePage, {account,pin});
     }
    addvalue(){
+    this.provider.setGiftCredentials(this.account, this.pin).then(response => {
+        console.log("giftCredential JSON response: ",response);
+      }, err => console.log(err))
+
     this.navCtrl.push(PaymentWindowPage);
     }
 
@@ -65,6 +70,5 @@ export class HomePage {
     //this.navCtrl.push(WelcomePage);
    }
 
- 
 
 }

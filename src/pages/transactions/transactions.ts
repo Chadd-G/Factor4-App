@@ -20,8 +20,8 @@ export class TransactionsPage {
   transactionReport: any;
   transactions: Array<String> = [];
   transactionData: string [];
-  account: string;
-  pin: string;
+  account: number;
+  pin: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public provider: Provider) {
 
     this.account = navParams.get('account');

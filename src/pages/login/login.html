@@ -14,17 +14,17 @@
 <ion-content padding class="no-scroll">
     <img id="logo" src='https://irp-cdn.multiscreensite.com/de923dbf/dms3rep/multi/desktop/56764850-3330-424b-acb7-b2aabc302719.png' />
     
-    <p id="scan">Check your gift card balance by scanning your card or logging in below</p>
+    <p id="scan">Use your Gift Card's number and pin to login below.</p>
   <ion-list>
    
     <ion-item>
       <ion-label id="cardLabel" floating>Card Number</ion-label>
-      <ion-input id='cardInput' type="text" [(ngModel)]="accountNumber" #account></ion-input>
+      <ion-input id='cardInput' type="number" [(ngModel)]="accountNumber" #account></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label id='pinLabel' floating>Pin Number</ion-label>
-      <ion-input id='pinInput' type="password"  [(ngModel)]="accountPin" #pin></ion-input>
+      <ion-input id='pinInput' type="number"  [(ngModel)]="accountPin" #pin></ion-input>
     </ion-item>
   
   </ion-list>

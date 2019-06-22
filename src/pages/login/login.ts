@@ -13,11 +13,12 @@ import {AlertController} from 'ionic-angular';
 
 export class LoginPage {
  
-  accountNumber: any;
-  accountPin: any;
+  accountNumber: number;
+  accountPin: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public provider: Provider, public alertController: AlertController) {
  
   }
+ 
   async loginAlert(){
     const alert = await this.alertController.create({
       title: 'Invalid Credentials',
@@ -26,6 +27,7 @@ export class LoginPage {
     });
     await alert.present();
   }
+
   sendLoginInput(account, pin){
     account = this.accountNumber;
     pin = this.accountPin;
