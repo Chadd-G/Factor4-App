@@ -9,7 +9,7 @@ page-transactions {
 .grid{text-align: center;}
 
     .header_col{
-        color: rgb(102, 109, 108);
+        color: white;
         font-size: 20px;
         font-weight: bold;
         font-style: helvetica;
@@ -22,13 +22,13 @@ page-transactions {
         font-style: helvetica;
     }
     #tableHeaders{
-        background-color: rgb(229, 241, 241);
+        background-color: rgba(231, 25, 25, 0.6);
         margin-top: 5px;
         margin-bottom: 0px;
         padding-bottom: 0px;
     }
     #tableData{
-        background-color: rgb(189, 238, 238);
+        background-color: rgba(231, 25, 25, 0.4);
     }
 @media only screen and
   (max-width: 1080px) {

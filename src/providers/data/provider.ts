@@ -204,7 +204,7 @@ export class Provider {
     }
 
   setGiftCredentials(account, pin){
-      var url ='http://192.168.1.212:80/setGiftCredentials.php';
+      var url ='https://www.factor4payment.com/php/setGiftCredentials.php'; //production: https://www.factor4payment.com/php/setGiftCredentials.php
       var data = { 'accountId': account, 'pin': pin};
         return fetch(url, {
             method: 'POST',   

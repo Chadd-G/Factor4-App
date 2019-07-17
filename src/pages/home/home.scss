@@ -1,6 +1,6 @@
 page-home{
    .no-scroll{
-       background-color:#D9FAFA ;
+       background-color:white;
    }
     ion-title{
         position: absolute;
@@ -9,7 +9,7 @@ page-home{
     }
     .header{
         Font-weight: bold;
-        color: #ABBBB9;
+        color: white;
     }
     #barcodeCard{
    
@@ -17,21 +17,21 @@ page-home{
         right: 10px;
         width: 100%;
         bottom: 18px;
-        background-color: #F0FFFF;
+        background-color: rgba(231, 25, 25, 0.6);
     }
     #balanceCard{
         position: relative;
         right: 10px;
         width: 100%;
         bottom: 20px;
-        background-color: #F0FFFF;
+        background-color: rgba(231, 25, 25, 0.6);
     }
     #manageCard{
         position: relative;
         right: 10px;
         width: 100%;
         bottom: 18px;
-        background-color: #F0FFFF;
+        background-color: rgba(231, 25, 25, 0.6);
     }
     #accountId{
         position: relative;
@@ -48,15 +48,10 @@ page-home{
        position: relative;
        bottom: 150px;
    }
-    #balance{
-        color: #3CB371;
-        position: relative;
-        left: 40px;
-        top: 175px;
-        font-size: 63px;
+
        
     
-    } 
+    
      #logo{
          width: 20%;
          position: relative;
@@ -76,7 +71,8 @@ page-home{
          top: 200px;
      }
      #logoutButton{
-         background-color: 	#90EE90;
+         color: white;
+         background-color: rgb(231, 25, 25);
      }
    
 
