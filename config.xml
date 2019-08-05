@@ -47,15 +47,15 @@
         <allow-navigation href="*" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <icon height="57" src="resources/ios/icon/F4-ldpi.png" width="57" />
-        <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
-        <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
-        <icon height="80" src="resources/ios/icon/icon-40@2x.png" width="80" />
-        <icon height="120" src="resources/ios/icon/icon-40@3x.png" width="120" />
-        <icon height="50" src="resources/ios/icon/icon-50.png" width="50" />
-        <icon height="100" src="resources/ios/icon/icon-50@2x.png" width="100" />
-        <icon height="60" src="resources/ios/icon/icon-60.png" width="60" />
-        <icon height="120" src="resources/ios/icon/icon-60@2x.png" width="120" />
+        <icon height="57" src="resources/ios/icon/F4-hdpi.png" width="57" />
+        <icon height="114" src="resources/ios/icon/F4-hdpi.png" width="114" />
+        <icon height="40" src="resources/ios/icon/F4-hdpi.png" width="40" />
+        <icon height="80" src="resources/ios/icon/F4-hdpi.png" width="80" />
+        <icon height="120" src="resources/ios/icon/F4-hdpi.png" width="120" />
+        <icon height="50" src="resources/ios/icon/F4-hdpi.png" width="50" />
+        <icon height="100" src="resources/ios/icon/F4-hdpi.png" width="100" />
+        <icon height="60" src="resources/ios/icon/F4-hdpi.png" width="60" />
+        <icon height="120" src="resources/ios/icon/F4-hdpi.png" width="120" />
         <icon height="180" src="resources/ios/icon/icon-60@3x.png" width="180" />
         <icon height="72" src="resources/ios/icon/icon-72.png" width="72" />
         <icon height="144" src="resources/ios/icon/icon-72@2x.png" width="144" />
